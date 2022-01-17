@@ -17,8 +17,9 @@ const { isAddress, getAddress, formatUnits, parseUnits } = utils;
 const defaultNetwork = process.env.NETWORK || "localhost";
 const infuraKey = process.env.INFURA_KEY;
 const deployerAddress = process.env.DEPLOYER;
+const privateKey = process.env.PRIVATE_KEY;
 const walletURL = process.env.WALLET_URL || "http://localhost:3000";
-const tokensContract = "ContentViewToken";
+const tokensContract = "PsyborgToken";
 
 /*
       📡 This is where you configure your deploy configuration for 🏗 scaffold-eth
@@ -53,25 +54,31 @@ module.exports = {
     localhost: {
       url: "http://localhost:8545",
     },
+    ropsten: {
+      url: "https://ropsten.infura.io/v3/" + infuraKey,
+      accounts: [
+        `${privateKey}`
+      ],
+    },
     kovan: {
       url: "https://kovan.infura.io/v3/" + infuraKey,
-      accounts: {
-        mnemonic: mnemonic(),
-      },
+      accounts: [
+        `${privateKey}`
+      ],
     },
     xdai: {
       url: "https://rpc.xdaichain.com/",
       gasPrice: 1000000000,
-      accounts: {
-        mnemonic: mnemonic(),
-      },
+      accounts: [
+        `${privateKey}`
+      ],
     },
     matic: {
       url: "https://rpc-mainnet.maticvigil.com/",
       gasPrice: 1000000000,
-      accounts: {
-        mnemonic: mnemonic(),
-      },
+      accounts: [
+        `${privateKey}`
+      ],
     },
     testnetSmartBCH: {
       url: "http://35.220.203.194:8545", // "https://moeing.tech:9545",

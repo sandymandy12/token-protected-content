@@ -3,11 +3,11 @@ pragma solidity ^0.8.4;
 
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "./ContentViewToken.sol";
+import "./PsyborgToken.sol";
 
 contract Vendor is Ownable {
     using SafeMath for uint256;
-    ContentViewToken _viewToken;
+    PsyborgToken _viewToken;
 
     uint256 public _tokensPerETH = 1000;
 
@@ -19,7 +19,7 @@ contract Vendor is Ownable {
     );
 
     constructor(address tokenAddress) {
-        _viewToken = ContentViewToken(tokenAddress);
+        _viewToken = PsyborgToken(tokenAddress);
     }
 
     function tokensPerETH() public view virtual returns (uint256) {

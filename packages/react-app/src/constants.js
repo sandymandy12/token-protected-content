@@ -18,6 +18,15 @@ export const NETWORKS = {
     blockExplorer: "",
     rpcUrl: "http://" + window.location.hostname + ":8545",
   },
+  ropsten: {
+    name: "ropsten",
+    color: "#7003DD",
+    chainId: 3,
+    coin: "ETH",
+    rpcUrl: `https://ropsten.infura.io/v3/${INFURA_ID}`,
+    blockExplorer: "https://ropsten.etherscan.io/",
+    faucet: "https://faucet.ropsten.be/", // https://faucet.kovan.network/
+  },
   kovan: {
     name: "kovan",
     color: "#7003DD",

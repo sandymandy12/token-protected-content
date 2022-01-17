@@ -10,6 +10,7 @@ import "./App.css";
 import {
   Account,
   Balance,
+  Content,
   Contract,
   EtherInput,
   Faucet,
@@ -33,7 +34,9 @@ const { ethers } = require("ethers");
 
 // 📡 What chain are your contracts deployed to?
 // const targetNetwork = NETWORKS.localhost;
-const targetNetwork = NETWORKS.testnetSmartBCH;
+// const targetNetwork = NETWORKS.testnetSmartBCH;
+// const targetNetwork = NETWORKS.kovan;
+const targetNetwork = NETWORKS.ropsten;
 // const targetNetwork = NETWORKS.mainnetSmartBCH;
 // const targetNetwork = NETWORKS.fujiAvalanche;
 // const targetNetwork = NETWORKS.mainnetAvalanche;
@@ -47,11 +50,11 @@ const targetNetwork = NETWORKS.testnetSmartBCH;
 // const targetNetwork = NETWORKS.kaleido;
 
 // 😬 Sorry for all the console logging
-const DEBUG = false;
+const DEBUG = true;
 
-const tokenName = "ContentViewToken";
-const coinName = targetNetwork.coin || "BCH";
-const ownerAddress = "0x81585790aA977b64e0c452DB84FC69eaCE951d4F";
+const tokenName = "PsyborgToken";
+const coinName = targetNetwork.coin || "ETH";
+const ownerAddress = "0x1b79A2a8a18F8A19d786A1796BaAE26f9779b22E";
 const viewThreshold = 100; // how many tokens you need to see the content
 
 // 🛰 providers
@@ -123,6 +126,7 @@ function App(props) {
       }
     }
     getAddress();
+    console.log(`address`, address);
   }, [userSigner]);
 
   // You can warn the user if you would like them to be on a specific network
@@ -166,7 +170,7 @@ function App(props) {
   //
   useEffect(() => {
     if (DEBUG && address && selectedChainId && yourLocalBalance && readContracts && writeContracts) {
-      console.log("_____________________________________ 🏗 scaffold-eth _____________________________________");
+      console.log("_____________________________________ 🏗 psyborg _____________________________________");
       console.log("🏠 localChainId", localChainId);
       console.log("👩‍💼 selected address:", address);
       console.log("🕵🏻‍♂️ selectedChainId:", selectedChainId);
@@ -285,23 +289,24 @@ function App(props) {
         <TokenBalance
           name={tokenName}
           img={"👁️"}
-          suffix={"CVT"}
+          suffix={"PSY"}
           fontSize={16}
           address={address}
           contracts={readContracts}
         />
       </div>
       {yourTokenBalance && yourTokenBalance.gt(viewThreshold) ? (
-        <div style={{ marginTop: 60 }}>
-          <Vimeo video="610454670" showTitle={false} />
-        </div>
+        // <div style={{ marginTop: 60 }}>
+        //   <Vimeo video="610454670" showTitle={false} />
+        // </div>
+        <></>
       ) : (
         <div style={{ padding: 4, marginTop: 24, width: 480, margin: "auto" }}>
           <Alert
             message="Content unavailable"
             description={
               <div>
-                You need <b>{viewThreshold} CVT</b> to see the private content.
+                You need <b>{viewThreshold} PSY</b> to see the private content.
               </div>
             }
             type="error"

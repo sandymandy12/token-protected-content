@@ -5,8 +5,8 @@ import React from "react";
 
 export default function Header() {
   return (
-    <a href="https://github.com/zh/token-protected-content" target="_blank" rel="noopener noreferrer">
-      <PageHeader title="Private Content" subTitle="Stake 👁️  to access it" style={{ cursor: "pointer" }} />
+    <a href="https://github.com/sandymandy12/token-protected-content" target="_blank" rel="noopener noreferrer">
+      <PageHeader title="Rune Stake" subTitle="Stake 👁️  to access it" style={{ cursor: "pointer" }} />
     </a>
   );
 }

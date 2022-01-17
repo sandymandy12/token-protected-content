@@ -1,8 +1,8 @@
 const { ethers } = require("hardhat");
 
 // *** FIX THIS ***
-const OWNER_ADDR = "0x81585790aA977b64e0c452DB84FC69eaCE951d4F";
-const tokenName = "ContentViewToken";
+const OWNER_ADDR = "0x1b79A2a8a18F8A19d786A1796BaAE26f9779b22E";
+const tokenName = "PsyborgToken";
 
 module.exports = async ({ getNamedAccounts, deployments }) => {
   const { deploy } = deployments;
